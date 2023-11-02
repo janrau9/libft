@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 16:53:43 by jberay            #+#    #+#             */
-/*   Updated: 2023/11/01 16:53:45 by jberay           ###   ########.fr       */
+/*   Created: 2023/11/02 14:10:15 by jberay            #+#    #+#             */
+/*   Updated: 2023/11/02 14:10:17 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*ptr;
-	size_t	slen;
-	size_t	memlen;
+	t_list	*temp;
+	t_list	*head;
 
-	if (s == NULL)
-		return (NULL);
-	slen = ft_strlen(s);
-	if (slen < len)
-		memlen = slen;
-	else
-		memlen = len;
-	ptr = malloc(memlen +1);
-	if (ptr == NULL)
-		return (NULL);
-	if ((size_t)start >= slen)
+	if (lst)
 	{
-		ptr[0] = '\0';
-		return (ptr);
+		head = NULL;
+		while (lst)
+		{
+			temp = ft_lstnew(f(lst->content));
+			if (!temp)
+				ft_lstclear(&temp, del);
+			ft_lstadd_back(&head, temp);
+			lst = lst->next;
+		}
+		return (head);
 	}
-	ft_memcpy(ptr, &s[start], memlen);
-	ptr[memlen] = 0;
-	return (ptr);
+	return (NULL);
 }

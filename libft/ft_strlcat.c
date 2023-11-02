@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 08:02:35 by jberay            #+#    #+#             */
-/*   Updated: 2023/11/01 08:02:51 by jberay           ###   ########.fr       */
+/*   Created: 2023/11/01 15:47:32 by jberay            #+#    #+#             */
+/*   Updated: 2023/11/01 15:48:08 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		i++;
 	}
 	dst[dlen + i] = 0;
-	return (dlen + slen); 
+	return (dlen + slen);
 }

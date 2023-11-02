@@ -6,14 +6,14 @@
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 08:07:35 by jberay            #+#    #+#             */
-/*   Updated: 2023/11/01 08:07:37 by jberay           ###   ########.fr       */
+/*   Updated: 2023/11/01 15:50:42 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_digit(long n, int sign);
-char	*putint(long n, int sign, char *ptr, int noz);
+static int	get_digit(long n, int sign);
+static char	*putint(long n, int sign, char *ptr, int noz);
 
 char	*ft_itoa(int n)
 {
@@ -38,7 +38,7 @@ char	*ft_itoa(int n)
 	return (putint(x, sign, ptr, noz));
 }
 
-char	*putint(long n, int sign, char *ptr, int noz)
+static char	*putint(long n, int sign, char *ptr, int noz)
 {
 	int	i;
 
@@ -56,7 +56,7 @@ char	*putint(long n, int sign, char *ptr, int noz)
 	return (ptr);
 }
 
-int	get_digit(long n, int sign)
+static int	get_digit(long n, int sign)
 {
 	int	x;
 

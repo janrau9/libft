@@ -6,14 +6,14 @@
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 08:07:18 by jberay            #+#    #+#             */
-/*   Updated: 2023/11/01 08:07:19 by jberay           ###   ########.fr       */
+/*   Updated: 2023/11/01 15:51:38 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	word_count(char const *s, char c);
-char	*get_word(char const *s, char c);
+static size_t	word_count(char const *s, char c);
+static char		*get_word(char const *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
@@ -43,7 +43,7 @@ char	**ft_split(char const *s, char c)
 	return (mptr);
 }
 
-char	*get_word(char const *s, char c)
+static char	*get_word(char const *s, char c)
 {
 	size_t	i;
 	char	*pword;
@@ -59,7 +59,7 @@ char	*get_word(char const *s, char c)
 	return (pword);
 }
 
-size_t	word_count(char const *s, char c)
+static size_t	word_count(char const *s, char c)
 {
 	int		flag;
 	size_t	count;

@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 16:53:43 by jberay            #+#    #+#             */
-/*   Updated: 2023/11/01 16:53:45 by jberay           ###   ########.fr       */
+/*   Created: 2023/11/01 17:38:09 by jberay            #+#    #+#             */
+/*   Updated: 2023/11/02 13:05:44 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	char	*ptr;
-	size_t	slen;
-	size_t	memlen;
+	t_list	*ps;
 
-	if (s == NULL)
+	ps = malloc(sizeof(t_list));
+	if (!ps)
 		return (NULL);
-	slen = ft_strlen(s);
-	if (slen < len)
-		memlen = slen;
-	else
-		memlen = len;
-	ptr = malloc(memlen +1);
-	if (ptr == NULL)
-		return (NULL);
-	if ((size_t)start >= slen)
-	{
-		ptr[0] = '\0';
-		return (ptr);
-	}
-	ft_memcpy(ptr, &s[start], memlen);
-	ptr[memlen] = 0;
-	return (ptr);
+	ps->content = content;
+	ps->next = NULL;
+	return (ps);
 }

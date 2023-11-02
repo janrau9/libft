@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 08:06:50 by jberay            #+#    #+#             */
-/*   Updated: 2023/11/01 08:06:52 by jberay           ###   ########.fr       */
+/*   Created: 2023/11/01 15:46:43 by jberay            #+#    #+#             */
+/*   Updated: 2023/11/01 15:52:42 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_set(const char *set, char c);
+static int		is_set(const char *set, char c);
 
 char	*ft_strtrim(char const *s1, const char *set)
 {
@@ -20,7 +20,7 @@ char	*ft_strtrim(char const *s1, const char *set)
 	size_t	len;
 	char	*ptr;
 
-	if (s1 == NULL || set == NULL) 
+	if (s1 == NULL || set == NULL)
 		return (NULL);
 	i = 0;
 	len = ft_strlen(s1);
@@ -36,7 +36,7 @@ char	*ft_strtrim(char const *s1, const char *set)
 	return (ptr);
 }
 
-int	is_set(const char *set, char c)
+static int	is_set(const char *set, char c)
 {
 	size_t	i;
 
